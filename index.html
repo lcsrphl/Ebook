@@ -4,8 +4,26 @@
   <meta charset="UTF-8" />
   <title>Viva o Seu Presente – E-book</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="E-book cristão sobre presença, silêncio interior e plenitude ontológica em Deus, aplicado à vida real." />
+  <meta name="description" content="Um e-book sobre presença, espiritualidade cristã e plenitude ontológica no aqui e agora." />
+
+  <!-- Tipografia mais profissional -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+
   <style>
+    :root {
+      --bg-gradient: linear-gradient(135deg, #f5f3ff, #e0f2fe);
+      --card-bg: #ffffff;
+      --text-main: #0f172a;
+      --text-muted: #6b7280;
+      --accent: #5b21b6;  /* roxo elegante */
+      --accent-soft: #ede9fe;
+      --shadow-soft: 0 18px 40px rgba(15, 23, 42, 0.12);
+      --radius-lg: 20px;
+      --radius-md: 12px;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -13,300 +31,348 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-      line-height: 1.6;
-      background: #f5f5f7;
-      color: #222;
-      padding: 24px;
+      min-height: 100vh;
+      font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.7;
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      padding: 24px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .page {
-      max-width: 780px;
-      margin: 0 auto;
-      background: #ffffff;
-      padding: 32px 24px;
-      border-radius: 16px;
-      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      width: 100%;
+      max-width: 960px;
+      background: var(--card-bg);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 28px 22px 30px;
+      position: relative;
+      overflow: hidden;
     }
 
-    h1 {
+    /* detalhe decorativo */
+    .page::before {
+      content: "";
+      position: absolute;
+      inset: -80px auto auto -80px;
+      width: 220px;
+      height: 220px;
+      background: radial-gradient(circle at center, rgba(91,33,182,0.12), transparent 60%);
+      opacity: 0.8;
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: #f1f5f9;
+      color: #64748b;
+      font-size: 0.78rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .badge-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--accent);
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.5fr) minmax(0, 1.1fr);
+      gap: 32px;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-text h1 {
+      font-family: "Playfair Display", serif;
       font-size: 2.2rem;
+      letter-spacing: 0.02em;
       margin-bottom: 8px;
-      text-align: left;
-      letter-spacing: 0.03em;
+      color: #111827;
     }
 
     .subtitle {
-      font-size: 1rem;
-      color: #555;
+      font-size: 0.98rem;
+      color: var(--text-muted);
       margin-bottom: 18px;
-    }
-
-    .cover {
-      margin: 8px 0 22px;
-      text-align: center;
-    }
-
-    .cover img {
-      max-width: 260px;
-      width: 100%;
-      height: auto;
-      border-radius: 12px;
-      box-shadow: 0 14px 32px rgba(0,0,0,0.15);
+      max-width: 34rem;
     }
 
     .highlight-box {
-      background: #f0f4ff;
-      border-left: 4px solid #384b9b;
-      padding: 16px 18px;
-      border-radius: 8px;
-      margin-bottom: 20px;
-      font-size: 0.98rem;
+      background: var(--accent-soft);
+      border-radius: var(--radius-md);
+      padding: 14px 16px;
+      margin-bottom: 18px;
+      border: 1px solid rgba(91,33,182,0.15);
+      font-size: 0.96rem;
+      color: #312e81;
     }
 
     .highlight-box strong {
       font-weight: 600;
     }
 
-    p {
-      margin-bottom: 12px;
-      font-size: 0.98rem;
+    .hero-text p {
+      font-size: 0.95rem;
+      margin-bottom: 10px;
+      color: #111827;
     }
 
     .section-title {
+      font-size: 0.9rem;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.11em;
+      color: #6b21a8;
       margin-top: 18px;
-      margin-bottom: 6px;
-      font-size: 1rem;
+      margin-bottom: 10px;
     }
 
     ul {
       margin-left: 18px;
-      margin-bottom: 14px;
-      font-size: 0.96rem;
+      margin-bottom: 16px;
+      font-size: 0.94rem;
+      color: #111827;
     }
 
     li {
       margin-bottom: 6px;
     }
 
-    .section {
-      margin-top: 10px;
-      margin-bottom: 8px;
+    .hero-aside {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .cover-wrapper {
+      width: 100%;
+      max-width: 320px;
+      border-radius: 18px;
+      padding: 10px;
+      background: radial-gradient(circle at top, #ede9fe, #e5e7eb);
+      box-shadow: 0 16px 35px rgba(15,23,42,0.18);
+    }
+
+    .cover-wrapper img {
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+    }
+
+    .format-badge {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      text-align: center;
     }
 
     .cta-box {
       margin-top: 22px;
       padding-top: 18px;
-      border-top: 1px solid #eee;
+      border-top: 1px solid #e5e7eb;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
     }
 
     .price {
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       font-weight: 600;
-      margin-bottom: 6px;
+      color: #111827;
     }
 
     .small-note {
-      font-size: 0.86rem;
-      color: #777;
-      margin-bottom: 12px;
+      font-size: 0.82rem;
+      color: var(--text-muted);
+      max-width: 30rem;
     }
 
-    .btn {
-      display: inline-block;
-      padding: 12px 22px;
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 6px;
+      padding: 12px 24px;
       border-radius: 999px;
       border: none;
       text-decoration: none;
       font-weight: 600;
-      font-size: 0.98rem;
+      font-size: 0.96rem;
       cursor: pointer;
-      background: #384b9b;
+      background: var(--accent);
       color: #fff;
       transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-      box-shadow: 0 8px 20px rgba(56,75,155,0.25);
+      box-shadow: 0 12px 30px rgba(91,33,182,0.38);
     }
 
-    .btn:hover {
-      background: #2f3e82;
+    .btn-primary span.icon {
+      font-size: 1rem;
+      transform: translateY(1px);
+    }
+
+    .btn-primary:hover {
+      background: #4c1d95;
       transform: translateY(-1px);
-      box-shadow: 0 10px 26px rgba(56,75,155,0.3);
+      box-shadow: 0 16px 36px rgba(91,33,182,0.46);
     }
 
     .author-note {
-      margin-top: 16px;
-      font-size: 0.9rem;
-      color: #555;
+      margin-top: 10px;
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      max-width: 30rem;
     }
 
-    .authority-box {
-      margin-top: 18px;
-      padding: 14px 16px;
-      background: #faf5ff;
-      border-radius: 10px;
-      border: 1px solid #ebddff;
-      font-size: 0.9rem;
+    .author-note strong {
+      color: #4b5563;
     }
 
-    .authority-title {
-      font-weight: 600;
-      margin-bottom: 4px;
-      font-size: 0.94rem;
+    footer {
+      margin-top: 26px;
+      padding-top: 12px;
+      border-top: 1px solid #e5e7eb;
+      font-size: 0.78rem;
+      color: #9ca3af;
+      text-align: right;
     }
 
-    .faq {
-      margin-top: 20px;
-      font-size: 0.9rem;
+    footer a {
+      color: #7c3aed;
+      text-decoration: none;
     }
 
-    .faq h2 {
-      font-size: 1rem;
-      margin-bottom: 8px;
+    footer a:hover {
+      text-decoration: underline;
     }
 
-    .faq-item {
-      margin-bottom: 10px;
-    }
-
-    .faq-item strong {
-      display: block;
-      margin-bottom: 2px;
-    }
-
-    @media (min-width: 768px) {
+    @media (max-width: 768px) {
       body {
-        padding: 40px;
+        padding: 18px 12px;
       }
+
       .page {
-        padding: 40px 36px;
+        padding: 22px 18px 24px;
       }
-      h1 {
-        font-size: 2.4rem;
+
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 22px;
+      }
+
+      .hero-text h1 {
+        font-size: 1.8rem;
+      }
+
+      .page::before {
+        inset: -120px auto auto -120px;
+      }
+
+      .cta-box {
+        margin-top: 20px;
+      }
+
+      footer {
+        text-align: left;
       }
     }
   </style>
 </head>
 <body>
   <main class="page">
-    <h1>Viva o seu presente</h1>
-    <p class="subtitle">Um convite cristão para habitar a plenitude de Deus no agora.</p>
-
-    <!-- Substitua o nome do arquivo abaixo pelo nome real da sua capa -->
-    <div class="cover">
-      <img src="Capa-ebook.jpg" alt="Capa do e-book Viva o Seu Presente" />
+    <div class="badge">
+      <span class="badge-dot"></span>
+      <span>E-book digital · acesso imediato após o pagamento</span>
     </div>
 
-    <div class="highlight-box">
-      <p>
-        <strong>E se a sua ansiedade não viesse dos seus problemas, mas da forma como a sua alma se relaciona com o tempo?</strong>
-      </p>
-    </div>
+    <section class="hero">
+      <div class="hero-text">
+        <h1>Viva o seu presente</h1>
+        <p class="subtitle">
+          Um convite cristão para sair da ansiedade do futuro e habitar a plenitude de Deus agora.
+        </p>
 
-    <div class="section">
-      <p>
-        Este e-book nasceu de uma pergunta simples e incômoda: por que tanta gente que “melhorou de vida” continua cansada, vazia e ansiosa?
-        A resposta não está em mais conquistas externas, e sim em um modo totalmente diferente de existir diante de Deus, do tempo e de si mesmo.
-      </p>
-      <p>
-        Em <strong>“Viva o Seu Presente”</strong>, eu uno a espiritualidade cristã antiga
-        (padres do deserto, Evágrio Pôntico, Máximo, o Confessor, Gregório Palamás e Agostinho)
-        com a vida real de hoje: boletos, trabalho, rotina, pressões e pensamentos que não param.
-        É um texto sobre <strong>presença, silêncio interior e plenitude ontológica</strong> — tudo aplicado ao cotidiano.
-      </p>
-    </div>
+        <div class="highlight-box">
+          <p>
+            <strong>E se a sua ansiedade não viesse dos seus problemas, mas da forma como a sua alma se relaciona com o tempo?</strong>
+          </p>
+        </div>
 
-    <p class="section-title">Este e-book é para você que:</p>
-    <ul>
-      <li>Sente que a mente não desliga nunca e vive em estado de alerta, cansaço ou ansiedade constante.</li>
-      <li>Já percebeu que correr atrás de “uma vida melhor” não resolveu o vazio interno.</li>
-      <li>Deseja uma espiritualidade cristã mais profunda, honesta e enraizada, além de fórmulas rasas e frases prontas.</li>
-      <li>Quer aprender a viver cada dia com mais presença, descanso e consciência da presença de Deus.</li>
-      <li>Busca sentido na dor, sem negar a realidade dos problemas, mas sem ser esmagado por eles.</li>
-    </ul>
+        <p>
+          Este e-book é para quem já percebeu que conquistar “uma vida melhor” não resolve o ruído interno. 
+          Nele, uno a espiritualidade cristã antiga (padres do deserto, Evágrio, Máximo, Gregório Palamás e Agostinho)
+          com a vida real de hoje, para te mostrar um caminho de presença, descanso e transformação interior.
+        </p>
 
-    <p class="section-title">O que você vai encontrar dentro do livro:</p>
-    <ul>
-      <li>
-        <strong>Os pensamentos e os padres do deserto:</strong>
-        como Evágrio enxergava os <em>logismoi</em> (pensamentos) e por que eles não são “você”, mas janelas para aquilo que ainda precisa ser purificado na alma.
-      </li>
-      <li>
-        <strong>A transfiguração das potências da alma:</strong>
-        a visão de Máximo, o Confessor, sobre não apenas silenciar paixões, mas transfigurá-las em amor, mansidão, fé e contemplação.
-      </li>
-      <li>
-        <strong>A vida “em Cristo” hoje:</strong>
-        o que realmente significa negar a si mesmo, tomar a cruz e viver como alguém cuja existência está escondida em Cristo, no meio da vida comum.
-      </li>
-      <li>
-        <strong>O tempo em Agostinho:</strong>
-        por que o passado e o futuro não existem como você imagina, e como o Reino de Deus se manifesta apenas no presente.
-      </li>
-      <li>
-        <strong>Plenitude ontológica:</strong>
-        a diferença entre tentar “sentir paz” e ser transformado em um tipo de existência no qual a plenitude se torna fruto natural da união com Cristo.
-      </li>
-    </ul>
+        <p class="section-title">Dentro do e-book você vai entender, de forma profunda e prática:</p>
+        <ul>
+          <li>Por que seus pensamentos não são você – e como observar o ruído interno sem ser engolido por ele.</li>
+          <li>Como a fé cristã fala de uma <strong>nova existência</strong>, não só de “melhorar a versão atual de si mesmo”.</li>
+          <li>O que significa viver “em Cristo” no meio de boletos, trabalho, rotina e problemas reais.</li>
+          <li>Como a visão de Agostinho sobre o tempo mostra que o Reino se manifesta apenas no presente.</li>
+          <li>Por que a verdadeira plenitude é ontológica: muda o seu ser antes de mudar as suas circunstâncias.</li>
+        </ul>
 
-    <p>
-      Não é autoajuda rápida, nem um “passo a passo para ter uma vida perfeita”.
-      É um mapa para você aprender a habitar o instante presente com Deus, deixar de ser arrastado pelo futuro
-      e viver de forma mais profunda, lúcida e inteira.
-    </p>
+        <p>
+          Não é um manual de autoajuda rápida, nem uma promessa de que seus problemas vão sumir. 
+          É um mapa para você aprender a viver o que já está diante de você com profundidade, fé e presença.
+        </p>
 
-    <div class="authority-box">
-      <p class="authority-title">Sobre este e-book</p>
-      <p>
-        Este texto é fruto de anos de leitura, reflexão e experiência com a espiritualidade cristã,
-        especialmente das fontes esquecidas do cristianismo antigo. Aqui, eu traduzo conceitos
-        como <em>noûs</em>, hesychia, theosis e a visão agostiniana do tempo para uma linguagem acessível,
-        conectada à vida real de quem lida com ansiedade, pressão e rotina — mas deseja viver a fé
-        com verdade e profundidade.
-      </p>
-    </div>
+        <div class="cta-box">
+          <p class="price">Acesse agora o e-book completo</p>
+          <p class="small-note">
+            Pagamento seguro via Mercado Pago. Assim que o pagamento for confirmado, você será redirecionado(a) automaticamente
+            para a página de download do PDF.
+          </p>
 
-    <div class="cta-box">
-      <p class="price">Acesse agora o e-book completo em PDF</p>
-      <p class="small-note">
-        Pagamento seguro via Mercado Pago. Assim que o pagamento for confirmado, você será redirecionado(a)
-        automaticamente para a página de download do e-book.
-      </p>
+          <!-- TROQUE O LINK ABAIXO PELO LINK REAL DO SEU CHECKOUT DO MERCADO PAGO -->
+          <a href="https://seu-link-do-mercado-pago.com" class="btn-primary">
+            <span>Quero viver o meu presente</span>
+            <span class="icon">→</span>
+          </a>
 
-      <!-- TROQUE O LINK ABAIXO PELO LINK REAL DO SEU CHECKOUT DO MERCADO PAGO -->
-      <a href="https://seu-link-do-mercado-pago.com" class="btn">Quero viver o meu presente</a>
-
-      <p class="author-note">
-        Depois da leitura, no final do e-book você encontrará um link para deixar seu comentário.
-        A sua experiência com este conteúdo pode ajudar outras pessoas a entrarem nessa mesma jornada
-        de presença e plenitude em Deus.
-      </p>
-    </div>
-
-    <section class="faq">
-      <h2>Perguntas rápidas</h2>
-
-      <div class="faq-item">
-        <strong>Em qual formato o e-book é entregue?</strong>
-        <span>Você receberá o conteúdo em PDF, pronto para leitura no celular, tablet ou computador.</span>
+          <p class="author-note">
+            Este e-book nasce de uma caminhada real com Deus, dúvidas, crises e descobertas. 
+            Depois da leitura, me conta como esse conteúdo mexeu com a sua forma de olhar para o tempo, para Deus e para a sua própria vida.
+          </p>
+        </div>
       </div>
 
-      <div class="faq-item">
-        <strong>Quando vou receber?</strong>
-        <span>
-          Assim que o pagamento for confirmado pelo Mercado Pago, você será redirecionado(a) para a página
-          de download. Guarde o arquivo em um lugar seguro para acessar sempre que quiser.
-        </span>
-      </div>
-
-      <div class="faq-item">
-        <strong>E se eu tiver algum problema com o download?</strong>
-        <span>
-          Caso algo dê errado no processo, é só entrar em contato pelo Instagram
-          <strong>@lucasraph.ael</strong> e me enviar o comprovante de pagamento. Eu te ajudo a resolver.
-        </span>
-      </div>
+      <aside class="hero-aside">
+        <div class="cover-wrapper">
+          <!-- Ajuste o caminho do arquivo de capa aqui -->
+          <img src="Capa ebool.jpg" alt="Capa do e-book Viva o seu presente" />
+        </div>
+        <p class="format-badge">
+          📖 Formato: PDF · leitura em qualquer dispositivo
+        </p>
+      </aside>
     </section>
+
+    <footer>
+      <span>© <span id="year"></span> Viva o seu Presente · Conteúdo espiritual para uma vida presente.</span>
+    </footer>
+
+    <script>
+      // Atualiza o ano no rodapé automaticamente
+      document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
   </main>
 </body>
 </html>
